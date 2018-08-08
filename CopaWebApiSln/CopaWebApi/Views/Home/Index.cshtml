@@ -1,0 +1,289 @@
+﻿@model CopaWebApi.Models.FilmesParticipantes
+
+@{
+    ViewData["Title"] = "Campeonato de Filmes";
+}
+
+<link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/css/bootstrap-grid.min.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+<script src="~/lib/jquery/jquery-3.3.1.js"></script>
+<script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+
+<div class="container-fluid">
+    <div class="row justify-content-md-center center-block">
+        <div class="col-xl-12">
+            @if (@Model.Message != null)
+            {
+                <div class="mb-4 mt-3 mr-1 ml-2 w-300">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <span>@Model.Message</span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            }
+
+            @using (Html.BeginForm("Index", "Home"))
+            {
+
+                <div class="row mb-4 mt-3 mr-1 ml-2 div-painel-principal w-300">
+                    <div class="col-md-12 text-center">
+                        <span class="size-span-h6">CAMPEONATO DE FILMES</span>
+                        <br />
+                        <div class="mt-5 mb-5"><span class="badge badge-secondary size-span-h1">Fase de Seleção</span></div>
+                        <p class="size-p">Selecione 16 filmes que você deseja que entrem na competição e depois pressione o <br />botão <strong>Gerar Meu Campeonato</strong> para prosseguir</p>
+                    </div>
+                </div>
+                <div class="row mb-3 mt-2 w-300">
+                    <div class="col-md-10 form-group">
+                        <span class="badge font-weight-bold text-left cor-span size-span">
+                            Selecionados<br />
+                            <label id="labelTotal"> @Html.Raw(Model.TotalFilmeSelecionados) </label> de @Html.Raw(Model.TotalGeralFilmes)
+                        </span>
+                    </div>
+                    <div class="col-md-2 float-right">
+                        <input type="submit" role="button" id="btnGerarCampeonato" value="GERAR MEU CAMPEONATO" class="btn btn-dark btn-md active" />
+                    </div>
+                </div>
+                <div class="row mb-4 mt-1 w-300 ml-1 table-responsive">
+                    <div id="div-table" class="col-md-3">
+                        <div class="w-100">
+                            @for (int i = 0; i < Model.FilmesA.Count; i++)
+                            {
+                                <table width="100%" cellspacing="10" cellpadding="4">
+                                    <tbody>
+                                        <tr>
+                                            <td class="row">
+                                                <div class="p-4 w-100 div-painel-tabela">
+                                                    @Html.CheckBoxFor(m => Model.FilmesA[i].Selected, new { onchange = "setFilmesSelecionados(this)" })
+                                                    @Html.HiddenFor(m => Model.FilmesA[i].Id)
+                                                    @Html.HiddenFor(m => Model.FilmesA[i].PrimaryTitle)
+                                                    @Html.HiddenFor(m => Model.FilmesA[i].AverageRating)
+                                                    @Html.HiddenFor(m => Model.FilmesA[i].Year)
+                                                    <strong class="ml-1 text-black-50"> @Html.Raw(Model.FilmesA[i].PrimaryTitle) </strong><br />
+                                                    <span class="ml-4 text-black-50">@Html.Raw(Model.FilmesA[i].Year)</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            }
+                        </div>
+                    </div>
+                    <div id="div-table" class="col-md-3">
+                        <div class="w-100">
+                            @for (int i = 0; i < Model.FilmesB.Count; i++)
+                            {
+                                <table width="100%" cellspacing="5" cellpadding="4">
+                                    <tbody>
+                                        <tr>
+                                            <td class="row">
+                                                <div class="p-4 w-100 div-painel-tabela">
+                                                    @Html.CheckBoxFor(m => Model.FilmesB[i].Selected, new { onchange = "setFilmesSelecionados(this)" })
+                                                    @Html.HiddenFor(m => Model.FilmesB[i].Id)
+                                                    @Html.HiddenFor(m => Model.FilmesB[i].PrimaryTitle)
+                                                    @Html.HiddenFor(m => Model.FilmesB[i].AverageRating)
+                                                    @Html.HiddenFor(m => Model.FilmesB[i].Year)
+                                                    <strong class="ml-1 text-black-50"> @Html.Raw(Model.FilmesB[i].PrimaryTitle) </strong><br />
+                                                    <span class="ml-4 text-black-50">@Html.Raw(Model.FilmesB[i].Year)</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            }
+                        </div>
+                    </div>
+                    <div id="div-table" class="col-md-3">
+                        <div class="w-100">
+                            @for (int i = 0; i < Model.FilmesC.Count; i++)
+                            {
+                                <table width="100%" cellspacing="10" cellpadding="4">
+                                    <tbody>
+                                        <tr>
+                                            <td class="row">
+                                                <div class="p-4 w-100 div-painel-tabela">
+                                                    @Html.CheckBoxFor(m => Model.FilmesC[i].Selected, new { onchange = "setFilmesSelecionados(this)" })
+                                                    @Html.HiddenFor(m => Model.FilmesC[i].Id)
+                                                    @Html.HiddenFor(m => Model.FilmesC[i].PrimaryTitle)
+                                                    @Html.HiddenFor(m => Model.FilmesC[i].AverageRating)
+                                                    @Html.HiddenFor(m => Model.FilmesC[i].Year)
+                                                    <strong class="ml-1 text-black-50"> @Html.Raw(Model.FilmesC[i].PrimaryTitle) </strong><br />
+                                                    <span class="ml-4 text-black-50">@Html.Raw(Model.FilmesC[i].Year)</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            }
+                        </div>
+                    </div>
+                    <div id="div-table" class="col-md-3">
+                        <div class="w-100">
+                            @for (int i = 0; i < Model.FilmesD.Count; i++)
+                            {
+
+                                <table width="100%" cellspacing="10" cellpadding="4">
+                                    <tbody>
+                                        <tr>
+                                            <td class="row">
+                                                <div class="p-4 w-100 div-painel-tabela">
+                                                    @Html.CheckBoxFor(m => Model.FilmesD[i].Selected, new { onchange = "setFilmesSelecionados(this)" })
+                                                    @Html.HiddenFor(m => Model.FilmesD[i].Id)
+                                                    @Html.HiddenFor(m => Model.FilmesD[i].PrimaryTitle)
+                                                    @Html.HiddenFor(m => Model.FilmesD[i].AverageRating)
+                                                    @Html.HiddenFor(m => Model.FilmesD[i].Year)
+                                                    <strong class="ml-1 text-black-50"> @Html.Raw(Model.FilmesD[i].PrimaryTitle) </strong><br />
+                                                    <span class="ml-4 text-black-50">@Html.Raw(Model.FilmesD[i].Year)</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@*Modal resultado*@
+<div class="modal fade bd-example-modal-lg" id="resultadoModal" tabindex="-1" role="dialog" aria-labelledby="myResultModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header div-painel-principal">    
+                <div class="ml-4 text-center">
+                    <h6><span>CAMPEONATO DE FILMES</span></h6>                    
+                    <div class="mt-2 mb-3"><span class="badge badge-secondary size-span-h1">Resultado Final</span></div>
+                    <p class="size-p">Veja o resultado final do Campeonato de filmes de forma simples e rápida</p>
+                </div>                
+            </div>
+            <div class="modal-body div-painel-tabela">
+                <div class="row">
+                    <div class="col-md-12 form-group text-center">
+                        <div class="row form-group">
+                            <div class="badge-secondary col-md-2 coluna-modal">
+                                <span class="size-p2">1º</span>
+                            </div>
+                            <div class="col-md-10 coluna-texto-modal border">
+                                <label id="labelTituloPodioPrimeiro"> --- </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 form-group text-center">
+                        <div class="row mt-1 form-group">
+                            <div class="badge-secondary col-md-2 coluna-modal">
+                                <span class="size-p2">2º</span>
+                            </div>
+                            <div class="col-md-10 coluna-texto-modal border">
+                                <label id="labelTituloPodioSegundo"> --- </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 form-group text-center">
+                        <div class="row mt-1 form-group">
+                            <div class="badge-secondary col-md-2 coluna-modal">
+                                <span class="size-p2">3º</span>
+                            </div>
+                            <div class="col-md-10 coluna-texto-modal border">
+                                <label id="labelTituloPodioTerceiro"> --- </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 form-group" id="accordion">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Resultado Disputas - JSON
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card card-body">                                    
+                                    <span class="mr-2 mb-2 mt-2"><strong>Resultado final</strong></span>                                        
+                                    <label id="lblResultadoFinal">---</label>
+                                    
+                                    <span class="mr-2 mb-2 mt-2"><strong>Resultado fase semifinal</strong></span>                                        
+                                    <label id="lblResultadoSemiFinal">---</label>
+                                   
+                                    <span class="mr-2 mb-2 mt-2"><strong>Resultado fase eliminatória</strong></span>                                       
+                                    <label  id="lblResultadoEliminatoria">---</label>                                   
+                                </div>
+                            </div>
+                        </div>                      
+                    </div>
+                </div>                                
+                <div class="row float-right mt-4">
+                    <button type="button" class="btn btn-secondary active" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>           
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" language="javascript">
+    var qtdSelecionados = 0;
+    var resultado = null;
+
+    $(document).ready(function () {
+        var total = parseInt(document.getElementById("labelTotal").innerHTML);
+        if (total == 16) {
+            document.getElementById('btnGerarCampeonato').disabled = false;
+        } else {
+            document.getElementById('btnGerarCampeonato').disabled = true;
+        }
+
+        resultado = JSON.parse('@Html.Raw(ViewBag.resultado)');  
+        
+        if (resultado != null) { 
+            
+            $("#resultadoModal").modal();  
+            document.getElementById("labelTituloPodioPrimeiro").innerHTML = resultado.TituloPodioPrimeiro;            
+            document.getElementById("labelTituloPodioSegundo").innerHTML = resultado.TituloPodioSegundo;
+            document.getElementById("labelTituloPodioTerceiro").innerHTML = resultado.TituloPodioTerceiro;  
+
+            document.getElementById("lblResultadoFinal").innerHTML = '@Html.Raw(ViewBag.resultado)';
+            document.getElementById("lblResultadoSemiFinal").innerHTML = '@Html.Raw(ViewBag.resultadoSemiFinal)';
+            document.getElementById("lblResultadoEliminatoria").innerHTML = '@Html.Raw(ViewBag.resultadoEliminatoria)';  
+        }
+
+        $('#resultadoModal').on('hide.bs.modal', function (e) {
+            resultado = null;   
+        })
+       
+    });
+
+    function setFilmesSelecionados(e) {
+
+        if (e.checked) {
+            qtdSelecionados = qtdSelecionados + 1;
+        } else if (qtdSelecionados > 0) {
+            qtdSelecionados = qtdSelecionados - 1;
+        }
+
+        document.getElementById("labelTotal").innerHTML = qtdSelecionados;
+
+        if (qtdSelecionados == 16) {
+            document.getElementById('btnGerarCampeonato').disabled = false;
+        } else {
+            document.getElementById('btnGerarCampeonato').disabled = true;
+        }
+    }
+
+</script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

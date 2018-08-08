@@ -1,0 +1,119 @@
+﻿body {
+    background-color: grey;
+}
+
+.div-painel-principal {
+    color: #fff;
+    background-color: #6c757d;
+    padding: 5%;
+}
+
+.div-painel-tabela {
+    background-color: white;
+    padding: 5%;
+    display: inline-block;
+    font-size: 10.5pt;
+    /*justify-content: initial;*/
+}
+
+.cor-span {
+    color: white !important;    
+}
+
+.coluna-modal {
+    float: left;
+    width: 26%;
+    padding: 5%;    
+    text-align:center;
+    align-items:center;
+}
+
+.size-span {
+    font-size: 18px !important;
+}
+
+.size-p {
+    font-size: 20px !important;
+}
+.size-p2 {
+    font-size: 32px !important;
+}
+
+.size-span-h1 {
+    font-size: 32px !important;
+    text-shadow: black 0.1em 0.1em 0.2em
+}
+
+.size-span-h6 {
+    font-size: 18px;
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: aliceblue;
+}
+
+.coluna-texto-modal {
+    float: right;
+    width: 25%;
+    padding: 5%;
+    font-size: 18px;
+    text-align: left;
+}
+
+.body-modal {
+    background-color: grey !important;
+}
+
+#div-table {
+    display: table;
+    width: 100%;
+}
+
+#div-table div {
+    display: table-row;
+    height: 100%;   
+}
+
+#div-table div .cell {
+    display: table-cell;
+    width: 80%;      
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.w-97 {
+    width: 99%;
+}
+
+.pad-5 {
+    padding: 5%;
+}
+
+.w-300 {
+    width:99%;
+}
+
+.margin-left-4 {
+    margin-left: 1.9rem !important;
+}
+
+.close {
+    background-color: red;   
+}
+
+.modal-content {
+    background-color: grey !important;
+}
+
+.div-painel-tabela {
+    background-color: white;
+    padding: 5%;
+    display: inline-block;
+    font-size: 10.5pt;
+    /*justify-content: initial;*/
+}
+
+.word-wrap-texto {
+    word-wrap: break-word !important;
+}

@@ -1,0 +1,17 @@
+C:\PROJETO\CopaWebApiSln\CopaWebApi.Test\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\PROJETO\CopaWebApiSln\CopaWebApi.Test\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+C:\PROJETO\CopaWebApiSln\CopaWebApi.Test\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
+C:\PROJETO\CopaWebApiSln\CopaWebApi.Test\bin\Debug\netcoreapp2.0\CopaWebApi.Test.deps.json
+C:\PROJETO\CopaWebApiSln\CopaWebApi.Test\bin\Debug\netcoreapp2.0\CopaWebApi.Test.runtimeconfig.json
+C:\PROJETO\CopaWebApiSln\CopaWebApi.Test\bin\Debug\netcoreapp2.0\CopaWebApi.Test.runtimeconfig.dev.json
+C:\PROJETO\CopaWebApiSln\CopaWebApi.Test\bin\Debug\netcoreapp2.0\CopaWebApi.Test.dll
+C:\PROJETO\CopaWebApiSln\CopaWebApi.Test\bin\Debug\netcoreapp2.0\CopaWebApi.Test.pdb
+C:\PROJETO\CopaWebApiSln\CopaWebApi.Test\bin\Debug\netcoreapp2.0\CopaWebApi.dll
+C:\PROJETO\CopaWebApiSln\CopaWebApi.Test\bin\Debug\netcoreapp2.0\CopaWebApi.pdb
+C:\PROJETO\CopaWebApiSln\CopaWebApi.Test\obj\Debug\netcoreapp2.0\CopaWebApi.Test.csprojAssemblyReference.cache
+C:\PROJETO\CopaWebApiSln\CopaWebApi.Test\obj\Debug\netcoreapp2.0\CopaWebApi.Test.csproj.CoreCompileInputs.cache
+C:\PROJETO\CopaWebApiSln\CopaWebApi.Test\obj\Debug\netcoreapp2.0\CopaWebApi.Test.AssemblyInfoInputs.cache
+C:\PROJETO\CopaWebApiSln\CopaWebApi.Test\obj\Debug\netcoreapp2.0\CopaWebApi.Test.AssemblyInfo.cs
+C:\PROJETO\CopaWebApiSln\CopaWebApi.Test\obj\Debug\netcoreapp2.0\CopaWebApi.Test.csproj.CopyComplete
+C:\PROJETO\CopaWebApiSln\CopaWebApi.Test\obj\Debug\netcoreapp2.0\CopaWebApi.Test.dll
+C:\PROJETO\CopaWebApiSln\CopaWebApi.Test\obj\Debug\netcoreapp2.0\CopaWebApi.Test.pdb
